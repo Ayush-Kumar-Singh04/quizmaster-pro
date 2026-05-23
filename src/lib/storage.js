@@ -35,3 +35,19 @@ export function getApiKey() {
 export function saveApiKey(k) {
   localStorage.setItem('qm_api_key', k)
 }
+
+const ARENA_MATCHES_KEY = 'qm_my_arena_matches'
+
+export function getMyArenaMatches() {
+  try {
+    return JSON.parse(localStorage.getItem(ARENA_MATCHES_KEY) || '[]')
+  } catch { return [] }
+}
+
+export function saveMyArenaMatch(roomCode) {
+  const matches = getMyArenaMatches()
+  if (!matches.includes(roomCode)) {
+    matches.unshift(roomCode)
+    localStorage.setItem(ARENA_MATCHES_KEY, JSON.stringify(matches.slice(0, 50)))
+  }
+}

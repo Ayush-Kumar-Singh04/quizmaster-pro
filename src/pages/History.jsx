@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { getSoloHistory, clearSoloHistory } from '../lib/storage'
+import { getSoloHistory, clearSoloHistory, getMyArenaMatches } from '../lib/storage'
 import { supabase, isSupabaseConfigured } from '../lib/supabase'
 import { ProgressBar, Badge } from '../components/UI'
 import { BookOpen, Swords, Inbox, Wrench, Trophy } from 'lucide-react'
@@ -25,8 +25,13 @@ export default function HistoryPage() {
   useEffect(() => {
     setSoloHistory(getSoloHistory())
     if (isSupabaseConfigured() && supabase) {
-      supabase.from('arena_history').select('*').order('played_at', { ascending: false }).limit(20)
-        .then(({ data }) => { if (data) setArenaHistory(data) })
+      const myMatches = getMyArenaMatches()
+      if (myMatches.length > 0) {
+        supabase.from('arena_history').select('*').in('room_id', myMatches).order('played_at', { ascending: false }).limit(20)
+          .then(({ data }) => { if (data) setArenaHistory(data) })
+      } else {
+        setArenaHistory([])
+      }
     }
   }, [])
 

@@ -4,6 +4,7 @@ import { extractText } from '../lib/fileParser'
 import { generateMCQs } from '../lib/aiGenerator'
 import { supabase, isSupabaseConfigured } from '../lib/supabase'
 import { celebrateWinner } from '../lib/confetti'
+import { saveMyArenaMatch } from '../lib/storage'
 import { FileDropZone, LoadingSpinner, TimerBar, ProgressBar, Badge, ScoreRing } from '../components/UI'
 import { Swords, AlertTriangle, Home as HomeIcon, DoorOpen, Rocket, Play, Trophy, Medal, User, Crown, CheckCircle2, Clock, Loader2, Sparkles, ChevronRight } from 'lucide-react'
 
@@ -70,6 +71,9 @@ export default function ArenaPage() {
     if (step === STEPS.RESULTS && room?.questions) {
       const myScore = Object.keys(answers).filter(k => room?.questions?.[+k] && answers[k] === room.questions[+k].correct).length
       celebrateWinner(myScore >= (room.questions.length * 0.8))
+
+      // Save match to local device history
+      saveMyArenaMatch(roomCode)
 
       // Host saves the match history to avoid duplicate entries
       if (!demoMode && supabase && room?.host_name === name) {
