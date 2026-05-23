@@ -32,6 +32,11 @@ function transcriptPlugin() {
 
 export default defineConfig({
   plugins: [react(), transcriptPlugin()],
+  server: {
+    watch: {
+      ignored: ['**/android/**']
+    }
+  },
   optimizeDeps: {
     include: ['pdfjs-dist']
   },
