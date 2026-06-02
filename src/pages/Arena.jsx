@@ -269,7 +269,7 @@ export default function ArenaPage() {
             </div>
 
             {!mode && (
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <motion.button onClick={() => setMode('host')} className="card glass-hover text-center cursor-pointer hover:border-brand-400" whileHover={{ scale: 1.02, y: -2 }}>
                   <div className="mb-3 text-brand-400 flex justify-center"><HomeIcon size={36} /></div>
                   <div className="font-display font-bold text-lg">Host Room</div>
@@ -291,7 +291,7 @@ export default function ArenaPage() {
                     {files.length} file(s): {files.map(f => f.name).join(', ')}
                   </div>
                 )}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm text-white/60 mb-2">Questions</label>
                     <input type="number" min="5" max="30" value={quizConfig.count}

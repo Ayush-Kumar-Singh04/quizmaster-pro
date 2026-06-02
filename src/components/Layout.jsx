@@ -85,19 +85,32 @@ export default function Layout({ children }) {
 
   return (
     <div className="min-h-screen flex flex-col noise">
-      {/* Ambient gradient */}
-      <div className="fixed inset-0 -z-10 pointer-events-none">
+      {/* Premium Dark Dynamic Video Background */}
+      <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden bg-gray-950">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="absolute inset-0 w-full h-full object-cover opacity-[0.12] select-none pointer-events-none scale-105"
+        >
+          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260520_111942_8fc50f9e-4dfd-45c1-81bb-d93342a23d87.mp4" type="video/mp4" />
+        </video>
+        {/* Dark radial overlay for maximum text contrast and readability */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(15,23,42,0.1)_0%,rgba(3,7,18,0.95)_100%)]" />
+        {/* Soft moving ambient color blobs to merge with the video depth */}
         <motion.div 
-          animate={{ x: [0, 50, 0], y: [0, 30, 0] }} 
+          animate={{ x: [0, 40, 0], y: [0, 20, 0] }} 
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-0 left-1/4 w-96 h-96 bg-brand-600/20 rounded-full blur-3xl" 
+          className="absolute top-0 left-1/4 w-96 h-96 bg-brand-600/10 rounded-full blur-3xl" 
         />
         <motion.div 
-          animate={{ x: [0, -40, 0], y: [0, -50, 0] }} 
+          animate={{ x: [0, -30, 0], y: [0, -40, 0] }} 
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl" 
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-500/5 rounded-full blur-3xl" 
         />
       </div>
+
 
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-white/10 bg-gray-950/80 backdrop-blur-md">

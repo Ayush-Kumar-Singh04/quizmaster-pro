@@ -230,7 +230,7 @@ export default function QuizPage() {
               {/* Mode */}
               <div className="card">
                 <label className="block text-sm font-medium text-white/70 mb-3">Quiz Mode</label>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {[
                     { id: 'practice', icon: <BookOpen size={24} />, label: 'Practice', desc: 'See answer after each question' },
                     { id: 'timed', icon: <Clock size={24} />, label: 'Timed', desc: 'Time limit per question' },
@@ -267,15 +267,15 @@ export default function QuizPage() {
               )}
 
               {/* Difficulty & Hands-Free */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="card">
                   <label className="block text-sm font-medium text-white/70 mb-3">Difficulty</label>
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap sm:flex-nowrap gap-2">
                     {['easy','medium','hard'].map(d => (
                       <button
                         key={d}
                         onClick={() => setConfig(c => ({ ...c, difficulty: d }))}
-                        className={`flex-1 py-2 rounded-xl border capitalize text-sm font-medium transition-all ${
+                        className={`flex-1 min-w-[70px] py-2.5 rounded-xl border capitalize text-sm font-medium transition-all ${
                           config.difficulty === d ? 'border-brand-500 bg-brand-600/20 text-brand-300' : 'border-white/15 text-white/60 hover:border-white/30'
                         }`}
                       >
