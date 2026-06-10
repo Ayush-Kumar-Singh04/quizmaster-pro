@@ -10,10 +10,9 @@ import { FileText, Target, Clock, Swords, BarChart, Gift, UploadCloud, SlidersHo
 const features = [
   { icon: <Video size={32} className="text-brand-400" />, title: 'YouTube to Quiz', desc: 'Paste a video link and instantly generate study questions.' },
   { icon: <Mic size={32} className="text-accent-400" />, title: 'Podcast Mode', desc: 'Hands-free learning. Listen and speak your answers aloud.' },
-  { icon: <MessageCircle size={32} className="text-brand-400" />, title: 'Socratic Tutor', desc: 'Chat with QuizMaster AI to debate answers and understand concepts.' },
+  { icon: <MessageCircle size={32} className="text-brand-400" />, title: 'Socratic Tutor', desc: 'Chat with QuizMaster to debate answers and understand concepts.' },
   { icon: <Swords size={32} className="text-accent-400" />, title: 'Arena Mode', desc: 'Compete live with friends in real-time multiplayer rooms.' },
   { icon: <FileText size={32} className="text-brand-400" />, title: 'Any Document', desc: 'Upload PDF, PowerPoint, Word, or plain text files.' },
-  { icon: <Gift size={32} className="text-accent-400" />, title: '100% Free', desc: 'Hosted free on Netlify. Powered by Gemini AI.' },
 ]
 
 const container = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } }
@@ -48,7 +47,7 @@ export default function Home() {
       {/* Hero */}
       <div className="text-center py-16 relative">
         <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}>
-          <Badge variant="info"><Sparkles size={14} className="inline mr-1" /> Powered by QuizMaster AI</Badge>
+          <Badge variant="info"><Sparkles size={14} className="inline mr-1" /> Powered by QuizMaster</Badge>
           <h1 className="font-display text-5xl md:text-7xl font-bold mt-6 mb-4 leading-tight">
             Turn any doc into
             <br />
@@ -127,7 +126,7 @@ export default function Home() {
           {[
             { n: '1', icon: <UploadCloud size={32} className="mx-auto text-brand-300" />, t: 'Upload', d: 'Drop your PDF, DOCX, or PPTX files' },
             { n: '2', icon: <SlidersHorizontal size={32} className="mx-auto text-brand-300" />, t: 'Configure', d: 'Set questions count & quiz mode' },
-            { n: '3', icon: <BrainCircuit size={32} className="mx-auto text-brand-300" />, t: 'Generate', d: 'QuizMaster AI creates smart MCQs instantly' },
+            { n: '3', icon: <BrainCircuit size={32} className="mx-auto text-brand-300" />, t: 'Generate', d: 'QuizMaster creates smart MCQs instantly' },
             { n: '4', icon: <Trophy size={32} className="mx-auto text-brand-300" />, t: 'Results', d: 'See your score with explanations' },
           ].map(s => (
             <motion.div key={s.n} className="card text-center" whileHover={{ scale: 1.02, y: -2 }}>

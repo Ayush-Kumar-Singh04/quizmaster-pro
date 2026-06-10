@@ -171,8 +171,8 @@ export default function Layout({ children }) {
         {children}
       </motion.main>
 
-      <footer className="border-t border-white/10 py-4 text-center text-white/30 text-xs">
-        QuizMaster Pro — AI-powered learning
+       <footer className="border-t border-white/10 py-4 text-center text-white/30 text-xs">
+        QuizMaster Pro — Smart learning
       </footer>
     </div>
   )

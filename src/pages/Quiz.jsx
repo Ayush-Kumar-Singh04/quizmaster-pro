@@ -76,7 +76,7 @@ export default function QuizPage() {
   const startQuiz = async () => {
     setError('')
     setLoading(true)
-    setLoadingMsg('QuizMaster AI is crafting your questions…')
+    setLoadingMsg('Your question is being prepared…')
     try {
       const qs = await generateMCQs({ text: extractedText, count: config.count, difficulty: config.difficulty })
       setQuestions(qs)
@@ -384,13 +384,13 @@ export default function QuizPage() {
                     {tutorState.open && (
                       <div className="mt-4 border-t border-brand-500/30 pt-4">
                         <div className="space-y-3 mb-3 max-h-48 overflow-y-auto pr-2">
-                          {tutorState.messages.length === 0 && <div className="text-xs text-white/40 italic">Ask QuizMaster AI for clarification on this question...</div>}
+                          {tutorState.messages.length === 0 && <div className="text-xs text-white/40 italic">Ask QuizMaster for clarification on this question...</div>}
                           {tutorState.messages.map((m, i) => (
                             <div key={i} className={`text-sm p-2 rounded-lg ${m.role === 'user' ? 'bg-white/10 ml-8 text-right' : 'bg-brand-600/30 mr-8'}`}>
                               {m.text}
                             </div>
                           ))}
-                          {tutorState.loading && <div className="text-xs text-brand-400 animate-pulse">QuizMaster AI is typing...</div>}
+                          {tutorState.loading && <div className="text-xs text-brand-400 animate-pulse">QuizMaster is typing...</div>}
                         </div>
                         <div className="flex gap-2">
                           <input 
