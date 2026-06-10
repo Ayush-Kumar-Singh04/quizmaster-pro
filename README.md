@@ -30,7 +30,7 @@
 | Layer | Technology | Hosting / Cost |
 | :--- | :--- | :--- |
 | **Frontend** | React 18 + Vite + Tailwind CSS + Framer Motion | Free |
-| **Artificial Intelligence** | Nova AI (Google Gemini API) | Environment Variables |
+| **Artificial Intelligence** | QuizMaster AI (Google Gemini API) | Environment Variables |
 | **Realtime Sync / DB** | Supabase Realtime (Database pub/sub) | Free Tier |
 | **Mobile Integration** | Ionic Capacitor | Free / Native APK |
 | **Web Hosting** | Netlify or Vercel | Free Tier |

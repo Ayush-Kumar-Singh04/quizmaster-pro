@@ -94,7 +94,7 @@ export default function ArenaPage() {
     try {
       let text = ''
       for (const f of files) text += '\n' + await extractText(f)
-      setLoadingMsg('Generating questions with Nova AI…')
+      setLoadingMsg('Generating questions with QuizMaster AI…')
       const questions = await generateMCQs({ text, count: quizConfig.count, difficulty: 'medium' })
       
       const code = genRoomCode()

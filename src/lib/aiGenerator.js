@@ -31,7 +31,7 @@ export async function generateMCQs({ text, count = 10, difficulty = 'medium', to
   const apiKey = getApiKey()
   if (!apiKey) throw new Error('Gemini API key is not configured. Please set the VITE_GEMINI_API_KEY environment variable in your .env or server environment.')
 
-  const prompt = `You are Nova, an expert MCQ creator. Based on the following document content, generate exactly ${count} high-quality multiple choice questions.
+  const prompt = `You are QuizMaster AI, an expert MCQ creator. Based on the following document content, generate exactly ${count} high-quality multiple choice questions.
 
 ${topic ? `Focus on the topic: "${topic}"\n` : ''}Difficulty: ${difficulty}
 
@@ -96,7 +96,7 @@ export async function chatWithTutor({ question, selectedOption, correctOption, e
   const apiKey = getApiKey()
   if (!apiKey) throw new Error('Gemini API key is not configured in the server environment.')
 
-  const prompt = `You are Nova AI, an expert Socratic tutor. 
+  const prompt = `You are QuizMaster AI, an expert Socratic tutor. 
 The user is taking a quiz and wants clarification on a question.
 Question: "${question}"
 Correct Answer: "${correctOption}"

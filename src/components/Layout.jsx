@@ -43,20 +43,22 @@ export default function Layout({ children }) {
         return false
       }
 
+      const isInput = e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable
+
       // Disable Ctrl+C / Cmd+C (Copy)
-      if ((e.ctrlKey || e.metaKey) && (e.key === 'C' || e.key === 'c')) {
+      if (!isInput && (e.ctrlKey || e.metaKey) && (e.key === 'C' || e.key === 'c')) {
         e.preventDefault()
         return false
       }
 
       // Disable Ctrl+V / Cmd+V (Paste)
-      if ((e.ctrlKey || e.metaKey) && (e.key === 'V' || e.key === 'v')) {
+      if (!isInput && (e.ctrlKey || e.metaKey) && (e.key === 'V' || e.key === 'v')) {
         e.preventDefault()
         return false
       }
 
       // Disable Ctrl+X / Cmd+X (Cut)
-      if ((e.ctrlKey || e.metaKey) && (e.key === 'X' || e.key === 'x')) {
+      if (!isInput && (e.ctrlKey || e.metaKey) && (e.key === 'X' || e.key === 'x')) {
         e.preventDefault()
         return false
       }
@@ -64,9 +66,18 @@ export default function Layout({ children }) {
     document.addEventListener('keydown', handleKeyDown)
 
     // Disable copy, cut, and paste events globally
-    const handleCopy = (e) => e.preventDefault()
-    const handleCut = (e) => e.preventDefault()
-    const handlePaste = (e) => e.preventDefault()
+    const handleCopy = (e) => {
+      const isInput = e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable
+      if (!isInput) e.preventDefault()
+    }
+    const handleCut = (e) => {
+      const isInput = e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable
+      if (!isInput) e.preventDefault()
+    }
+    const handlePaste = (e) => {
+      const isInput = e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable
+      if (!isInput) e.preventDefault()
+    }
 
     document.addEventListener('copy', handleCopy)
     document.addEventListener('cut', handleCut)

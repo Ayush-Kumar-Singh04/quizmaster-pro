@@ -30,7 +30,7 @@ export default function SettingsPage() {
         <div className="card">
           <h2 className="font-display font-semibold text-lg mb-4">Gemini API Key</h2>
           <p className="text-white/60 text-sm mb-4">
-            QuizMaster uses Nova AI (powered by Gemini) to generate questions. Your key is stored only in your browser — never sent anywhere except the Google API.
+            QuizMaster uses QuizMaster AI (powered by Gemini) to generate questions. Your key is stored only in your browser — never sent anywhere except the Google API.
           </p>
           
           {hasKey ? (

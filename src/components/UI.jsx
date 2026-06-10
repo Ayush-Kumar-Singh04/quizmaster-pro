@@ -126,20 +126,37 @@ export function FileDropZone({ onFiles, onUrl, multiple = false, accept = '.pdf,
       </label>
 
       {onUrl && (
-        <div className="flex items-center gap-2">
+        <div className="flex flex-col sm:flex-row items-center gap-2 w-full">
           <div className="text-white/40 text-sm font-medium w-8 text-center">OR</div>
-          <input 
-            type="text" 
-            placeholder="Paste a YouTube video URL..." 
-            className="input flex-1"
-            value={url}
-            onChange={e => setUrl(e.target.value)}
-            onKeyDown={e => e.key === 'Enter' && url && onUrl(url)}
-          />
+          <div className="flex-1 flex gap-2 w-full">
+            <input 
+              type="text" 
+              placeholder="Paste a YouTube video URL..." 
+              className="input flex-1 min-w-0"
+              value={url}
+              onChange={e => setUrl(e.target.value)}
+              onKeyDown={e => e.key === 'Enter' && url && onUrl(url)}
+            />
+            <button 
+              type="button"
+              onClick={async () => {
+                try {
+                  const text = await navigator.clipboard.readText()
+                  if (text) setUrl(text)
+                } catch (err) {
+                  console.warn("Clipboard access denied or not supported:", err)
+                }
+              }}
+              className="btn-secondary px-4 py-3 text-sm"
+              title="Paste from clipboard"
+            >
+              Paste
+            </button>
+          </div>
           <button 
             type="button" 
             onClick={() => url && onUrl(url)}
-            className="btn-accent px-6"
+            className="btn-accent px-6 w-full sm:w-auto"
           >
             Extract
           </button>
