@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Logo, Badge, FileDropZone, LoadingSpinner } from '../components/UI'
+import { Logo, FileDropZone, LoadingSpinner } from '../components/UI'
 import { extractText } from '../lib/fileParser'
 import { generateMCQs } from '../lib/aiGenerator'
 import { exportToWord } from '../lib/exportUtils'
-import { FileText, Target, Clock, Swords, BarChart, Gift, UploadCloud, SlidersHorizontal, BrainCircuit, Trophy, Sparkles, Rocket, Video, Mic, MessageCircle, Mail, Download } from 'lucide-react'
+import { FileText, Target, Clock, Swords, BarChart, Gift, UploadCloud, SlidersHorizontal, BrainCircuit, Trophy, Rocket, Video, Mic, MessageCircle, Mail, Download } from 'lucide-react'
 
 const features = [
   { icon: <Video size={32} className="text-brand-400" />, title: 'YouTube to Quiz', desc: 'Paste a video link and instantly generate study questions.' },
@@ -47,7 +47,6 @@ export default function Home() {
       {/* Hero */}
       <div className="text-center py-16 relative">
         <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}>
-          <Badge variant="info"><Sparkles size={14} className="inline mr-1" /> Powered by QuizMaster</Badge>
           <h1 className="font-display text-5xl md:text-7xl font-bold mt-6 mb-4 leading-tight">
             Turn any doc into
             <br />

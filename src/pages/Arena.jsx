@@ -6,7 +6,7 @@ import { supabase, isSupabaseConfigured } from '../lib/supabase'
 import { celebrateWinner } from '../lib/confetti'
 import { saveMyArenaMatch } from '../lib/storage'
 import { FileDropZone, LoadingSpinner, TimerBar, ProgressBar, Badge, ScoreRing } from '../components/UI'
-import { Swords, AlertTriangle, Home as HomeIcon, DoorOpen, Rocket, Play, Trophy, Medal, User, Crown, CheckCircle2, Clock, Loader2, Sparkles, ChevronRight } from 'lucide-react'
+import { Swords, AlertTriangle, Home as HomeIcon, DoorOpen, Rocket, Play, Trophy, Medal, User, Crown, CheckCircle2, Clock, Loader2, ChevronRight } from 'lucide-react'
 
 const STEPS = { LOBBY: 0, WAITING: 1, QUIZ: 2, RESULTS: 3 }
 const COLORS = ['bg-brand-500','bg-accent-500','bg-green-500','bg-pink-500','bg-yellow-500','bg-cyan-500']
@@ -481,7 +481,7 @@ export default function ArenaPage() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <Sparkles size={16} className="text-brand-400 animate-pulse" /> Force Reveal Results ⚡
+                    <Play size={16} className="text-brand-400" /> Force Reveal Results
                   </motion.button>
                 )}
               </motion.div>

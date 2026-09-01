@@ -1,6 +1,6 @@
 # QuizMaster Pro 🧠
 
-> Turn any PDF, PPTX, DOCX, or text file into an instant AI-powered quiz. Play solo, challenge friends in a secure real-time multiplayer Arena, or install it directly as a native Android app. Powered by Google Gemini and Supabase.
+> Turn any PDF, PPTX, DOCX, or text file into an instant quiz. Play solo, challenge friends in a secure real-time multiplayer Arena, or install it directly as a native Android app.
 
 ---
 
@@ -30,7 +30,7 @@
 | Layer | Technology | Hosting / Cost |
 | :--- | :--- | :--- |
 | **Frontend** | React 18 + Vite + Tailwind CSS + Framer Motion | Free |
-| **Artificial Intelligence** | QuizMaster AI (Google Gemini API) | Environment Variables |
+| **Artificial Intelligence** | QuizMaster (Google Gemini API) | Environment Variables |
 | **Realtime Sync / DB** | Supabase Realtime (Database pub/sub) | Free Tier |
 | **Mobile Integration** | Ionic Capacitor | Free / Native APK |
 | **Web Hosting** | Netlify or Vercel | Free Tier |
